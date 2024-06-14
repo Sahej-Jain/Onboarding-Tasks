@@ -1,0 +1,63 @@
+# imports:
+import time
+from dotenv import load_dotenv
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import os
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+
+# configuring the credentials:
+load_dotenv()
+BROWSERSTACK_USERNAME = os.environ.get("BROWSERSTACK_USERNAME") or "sahej_HLQNRT"
+BROWSERSTACK_ACCESS_KEY = os.environ.get("BROWSERSTACK_ACCESS_KEY") or "d94xB3WXqNxqLq1nZvy6"
+URL = os.environ.get("URL") or "https://hub.browserstack.com/wd/hub"
+
+bstack_options = {
+    "os" : "Windows",
+    "osVersion" : "10",
+    "buildName" : "browserstack assignment 1",
+    "sessionName" : "BStack single python test",
+    "userName": BROWSERSTACK_USERNAME,
+    "accessKey": BROWSERSTACK_ACCESS_KEY
+}
+bstack_options["source"] = "python:sample-main:v1.0"
+options = ChromeOptions()
+options.set_capability('bstack:options', bstack_options)
+driver = webdriver.Remote(
+    command_executor=URL,
+    options=options)
+
+# initializing the driver:
+driver.maximize_window()
+
+# opening chrome:
+driver.get("https://the-internet.herokuapp.com/")
+
+# uploading file:
+time.sleep(3)
+driver.find_element(By.LINK_TEXT, "File Upload").click()
+time.sleep(3)
+file_input = driver.find_element(By.ID, "file-upload")
+file_input.send_keys("/Users/sahej/Desktop/Selenium_tests/test.jpg")
+driver.find_element(By.ID, "file-submit").click()
+
+# go back to home page:
+driver.back()
+driver.back()
+time.sleep(5)
+
+# drag and drop:
+driver.find_element(By.LINK_TEXT, "Drag and Drop").click()
+time.sleep(2)
+drg = driver.find_element(By.ID, "column-a")
+drp = driver.find_element(By.ID, "column-b")
+ActionChains(driver).drag_and_drop(drg, drp).perform()
+time.sleep(5)
+
+# status update:
+driver.execute_script(
+      'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "Website URL verified successfully"}}')
+
+# closing the driver:
+driver.quit()
