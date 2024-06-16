@@ -23,8 +23,8 @@ except Exception as err:
         data = {
             "networkProfile": "4g-lte-good"
         }
-        username = BROWSERSTACK_USERNAME or "sahej_HLQNRT"
-        access_key =BROWSERSTACK_ACCESS_KEY or  "d94xB3WXqNxqLq1nZvy6"
+        username = BROWSERSTACK_USERNAME 
+        access_key =BROWSERSTACK_ACCESS_KEY 
         headers = {
             "Content-Type": "application/json"
         }

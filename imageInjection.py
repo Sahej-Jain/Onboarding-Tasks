@@ -15,7 +15,6 @@ URL = os.environ.get("URL")
 options = UiAutomator2Options()
 
 # Initialize the remote Webdriver using BrowserStack remote URL
-# and options defined above
 driver = webdriver.Remote(URL, options=options)
 driver.execute_script("browserstack_executor: {\"action\":\"cameraImageInjection\", \"arguments\": { \"imageUrl\" : \"media://3552622899a03bbca625d27885f8b3ba7f12e4e6\" }}")
 el1 = driver.find_element(by=AppiumBy.ID, value="com.android.permissioncontroller:id/permission_allow_button")
