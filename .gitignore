@@ -5,5 +5,4 @@ log
 __pycache__
 local.log
 .pytest_cache
-todemo
 browserstack-artifacts

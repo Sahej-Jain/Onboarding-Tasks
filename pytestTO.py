@@ -33,7 +33,7 @@ def test_file_upload(driver):
     driver.find_element(By.LINK_TEXT, "File Uplo").click()
     time.sleep(3)
     file_input = driver.find_element(By.ID, "file-upload")
-    file_input.send_keys("/Users/sahej/Desktop/Selenium_tests/test.jpg")
+    file_input.send_keys("path to the file to upload")
     driver.find_element(By.ID, "file-submit").click()
     time.sleep(3)
     assert "File Uploaded!" in driver.page_source
