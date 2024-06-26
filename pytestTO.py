@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 BROWSERSTACK_USERNAME = os.environ.get("BROWSERSTACK_USERNAME")
 BROWSERSTACK_ACCESS_KEY = os.environ.get("BROWSERSTACK_ACCESS_KEY")
-URL = os.environ.get("URL") or "https://hub.browserstack.com/wd/hub"
+URL = os.environ.get("URL")
 
 # Fixture to initialize the driver
 @pytest.fixture(scope="module")

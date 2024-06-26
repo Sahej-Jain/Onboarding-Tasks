@@ -11,7 +11,7 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 load_dotenv()
 BROWSERSTACK_USERNAME = os.environ.get("BROWSERSTACK_USERNAME") 
 BROWSERSTACK_ACCESS_KEY = os.environ.get("BROWSERSTACK_ACCESS_KEY") 
-URL = os.environ.get("URL") or "https://hub.browserstack.com/wd/hub"
+URL = os.environ.get("URL")
 
 # bstack_options = {
 #     "os" : "Windows",
@@ -39,7 +39,7 @@ time.sleep(3)
 driver.find_element(By.LINK_TEXT, "File Upload").click()
 time.sleep(3)
 file_input = driver.find_element(By.ID, "file-upload")
-file_input.send_keys("/Users/sahej/Desktop/Selenium_tests/test.jpg")
+file_input.send_keys("file path to be uploaded")
 driver.find_element(By.ID, "file-submit").click()
 
 # go back to home page:

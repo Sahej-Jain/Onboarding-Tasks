@@ -6,10 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import time, os
 from dotenv import load_dotenv
 
-# Options are only available since client version 2.3.0
-# If you use an older client then switch to desired_capabilities
-# instead: https://github.com/appium/python-client/pull/720
-
 load_dotenv()
 BROWSERSTACK_USERNAME = os.environ.get("BROWSERSTACK_USERNAME") 
 BROWSERSTACK_ACCESS_KEY = os.environ.get("BROWSERSTACK_ACCESS_KEY") 

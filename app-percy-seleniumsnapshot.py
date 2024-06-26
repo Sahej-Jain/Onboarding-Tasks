@@ -18,7 +18,7 @@ options = UiAutomator2Options().load_capabilities({
     "platformName" : "android",
     "platformVersion" : "9.0",
     "deviceName" : "Google Pixel 3",
-    "app" : "bs://fe95a9a95f8a9700554061be3fb335f2566cc538",
+    "app" : "your app url",
     'bstack:options' : {
         "projectName" : "App Automate project",
         "buildName" : "browserstack-build-2",
