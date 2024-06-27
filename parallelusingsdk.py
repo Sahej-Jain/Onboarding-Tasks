@@ -9,8 +9,6 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 # configuring the credentials:
 load_dotenv()
-BROWSERSTACK_USERNAME = os.environ.get("BROWSERSTACK_USERNAME") 
-BROWSERSTACK_ACCESS_KEY = os.environ.get("BROWSERSTACK_ACCESS_KEY") 
 URL = os.environ.get("URL")
 
 # bstack_options = {
@@ -39,7 +37,8 @@ time.sleep(3)
 driver.find_element(By.LINK_TEXT, "File Upload").click()
 time.sleep(3)
 file_input = driver.find_element(By.ID, "file-upload")
-file_input.send_keys("file path to be uploaded")
+upload_file = os.path.join(os.path.dirname(__file__),"test.jpg")
+file_input.send_keys(upload_file)
 driver.find_element(By.ID, "file-submit").click()
 
 # go back to home page:
